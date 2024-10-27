@@ -13,10 +13,14 @@ x = df.iloc[:,:-1].values
 # get all rows with only the last column
 y = df.iloc[:,-1].values
 
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
 
 model = LinearRegression()
 model.fit(x_train, y_train)
+a = model.intercept_
+b = model.coef_
+
+print(f"y = {a:.2f} + {b[0]:.2f}x")
 
 y_pred = model.predict(x_test)
 

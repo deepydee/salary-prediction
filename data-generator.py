@@ -15,4 +15,4 @@ def entry_generator(num_rows):
 with open('salaries.csv', 'w') as file:
     writer = csv.writer(file)
     writer.writerow(('Years', 'Salary'))
-    writer.writerows(entry_generator(1000))
+    writer.writerows(entry_generator(100))
