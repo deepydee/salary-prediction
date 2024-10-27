@@ -9,10 +9,11 @@ def entry_generator(num_rows):
     i = 0
     while i < num_rows:
         years = random.randint(1, 10)
-        yield years, years_to_salary(years)
+        city = random.randint(1, 2)
+        yield years, city, years_to_salary(years)
         i += 1
 
-with open('salaries.csv', 'w') as file:
+with open('salary-cities/salaries-city.csv', 'w') as file:
     writer = csv.writer(file)
-    writer.writerow(('Years', 'Salary'))
+    writer.writerow(('Years', 'City', 'Salary'))
     writer.writerows(entry_generator(100))
