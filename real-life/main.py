@@ -23,19 +23,29 @@ df = df[df['city'].isin(allowed_cities)]
 df_sorted = df.sort_values(by='salary', ascending=False)
 print(df_sorted.head(20))
 
-x = df.iloc[:, -2:-1]
-y = df.iloc[:, -1].values
-plt.xlabel('Years of experience')
-plt.ylabel('Salary')
-plt.scatter(x, y)
-plt.show()
+# x = df.iloc[:, -2:-1]
+# y = df.iloc[:, -1].values
+# plt.xlabel('Years of experience')
+# plt.ylabel('Salary')
+# plt.scatter(x, y)
+# plt.show()
 
 df = df[df['salary'] <= 6000]
 print(df.shape)
 
-x = df.iloc[:, -2:-1]
-y = df.iloc[:,-1].values
-plt.xlabel('Years of experience')
-plt.ylabel('Salary')
-plt.scatter(x, y)
-plt.show()
+# x = df.iloc[:, -2:-1]
+# y = df.iloc[:,-1].values
+# plt.xlabel('Years of experience')
+# plt.ylabel('Salary')
+# plt.scatter(x, y)
+# plt.show()
+
+one_hot = pd.get_dummies(df['language'], prefix='lang')
+df = df.join(one_hot)
+df = df.drop('language', axis=1)
+
+one_hot = pd.get_dummies(df['city'], prefix='city')
+df = df.join(one_hot)
+df = df.drop('city', axis=1)
+
+print(df.head(10))
