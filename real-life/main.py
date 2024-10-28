@@ -19,4 +19,23 @@ df.loc[condition, 'city'] = 'Kaunas'
 
 allowed_cities = ['Vilnius', 'Kaunas']
 df = df[df['city'].isin(allowed_cities)]
+
+df_sorted = df.sort_values(by='salary', ascending=False)
+print(df_sorted.head(20))
+
+x = df.iloc[:, -2:-1]
+y = df.iloc[:, -1].values
+plt.xlabel('Years of experience')
+plt.ylabel('Salary')
+plt.scatter(x, y)
+plt.show()
+
+df = df[df['salary'] <= 6000]
 print(df.shape)
+
+x = df.iloc[:, -2:-1]
+y = df.iloc[:,-1].values
+plt.xlabel('Years of experience')
+plt.ylabel('Salary')
+plt.scatter(x, y)
+plt.show()
