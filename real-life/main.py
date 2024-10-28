@@ -49,3 +49,11 @@ df = df.join(one_hot)
 df = df.drop('city', axis=1)
 
 print(df.head(10))
+
+# sns.heatmap(df.corr(), annot=True)
+# plt.show()
+
+x = df.iloc[:,0:2].values  # we take only years and level
+y = df.iloc[:,2].values    # we take the salary
+print(x[0:5])
+print(y[0:5])
